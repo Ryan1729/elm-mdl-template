@@ -1,19 +1,18 @@
 module ChangeMe exposing (..)
 
 import Html.App exposing (program)
-import Model exposing (defaultState)
+import MaterialModel exposing (MaterialModel, defaultState)
 import View exposing (view)
-import Model exposing (Model)
-import Msg exposing (Msg)
-import Update exposing (update)
+import MaterialMsg exposing (MaterialMsg)
+import MaterialUpdate exposing (materialUpdate)
 
 
-init : ( Model, Cmd Msg )
+init : ( MaterialModel, Cmd MaterialMsg )
 init =
     ( defaultState, Cmd.none )
 
 
-subscriptions : Model -> Sub Msg
+subscriptions : MaterialModel -> Sub MaterialMsg
 subscriptions =
     always Sub.none
 
@@ -22,7 +21,7 @@ main : Program Never
 main =
     program
         { init = init
-        , update = update
+        , update = materialUpdate
         , subscriptions = subscriptions
         , view = view
         }
